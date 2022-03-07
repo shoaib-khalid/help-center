@@ -1,0 +1,5 @@
+com\kalysm\symplifiedmerchantstore\helpcenter\repository\TopicRepository.class
+com\kalysm\symplifiedmerchantstore\helpcenter\service\TopicService.class
+com\kalysm\symplifiedmerchantstore\helpcenter\controller\TopicController.class
+com\kalysm\symplifiedmerchantstore\helpcenter\HelpCenterApplication.class
+com\kalysm\symplifiedmerchantstore\helpcenter\model\Topic.class

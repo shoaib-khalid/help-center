@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.kalysm.symplifiedmerchantstore.helpcenter.HelpCenterApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.221 s - in com.kalysm.symplifiedmerchantstore.helpcenter.HelpCenterApplicationTests
