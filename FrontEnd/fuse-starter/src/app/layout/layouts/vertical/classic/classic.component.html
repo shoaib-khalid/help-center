@@ -1,0 +1,770 @@
+<!-- Loading bar -->
+<fuse-loading-bar></fuse-loading-bar>
+
+<!-- Mobile side nav -->
+<!--Fuse sidenave-->
+
+
+<!-- Navigation header hook -->
+
+
+
+
+<!--Menu for small screens-->
+<!--
+<mat-sidenav-container *ngIf="showMobile" autosize class="visible lg:hidden h-full w-480 ">
+    <mat-sidenav [(opened)]="showMobile" class="bg-white p-10">
+        <ul>
+            <li> <button md-button class="mr-32">
+            <img mat-card-image src="favicon-32x32.png" alt="card">
+
+            </button>
+            </li>
+            <li><button class="m-2 ">    
+
+            <span class="ml-2 font-bold pr-48">Topics</span>
+            <mat-icon >keyboard_arrow_down</mat-icon>
+            </button></li>
+
+            <li><button class="m-2">
+
+            <span class="ml-2 font-bold ">Developers</span>
+            <mat-icon >keyboard_arrow_down</mat-icon>
+            </button></li>
+            <li><button class="m-2">
+
+            <span class="ml-2 font-bold pr-44">Support</span>
+            <mat-icon class="pl-4">keyboard_arrow_down</mat-icon>
+
+            </button></li>
+        </ul>
+        <mat-divider>
+
+        </mat-divider>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container> -->
+<!--Testing tailwind menu for small screens-->
+<div *ngIf="showMobile" class="bg-black opacity-50 absolute inset-y-0 left-0 w-full">
+
+</div>
+<div *ngIf="showMobile" class="absolute inset-y-0 right-40 ">
+
+    <div class="absolute inset-y-0 left-0 p-6 bg-white transform translate-x-0 transition duration-200 ease-in-out visible lg:hidden  top-0  w-64   h-full overflow-auto  z-30  ">
+        <div class="flex flex-row justify-between border-b">
+            <div class=" py-2">
+                Logo
+            </div>
+            <button (click)="toggleButton()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+        </button>
+        </div>
+        <div class="border-b py-5">
+            <div class="text-lg justify-between flex flex-row py-2">
+                <button>
+                Topics
+            </button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+
+
+            </div>
+            <div class="text-lg justify-between flex flex-row py-2">
+                <button>
+                Developers
+            </button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+
+
+            </div>
+            <div class="text-lg justify-between flex flex-row py-2">
+                <button>
+                Support
+            </button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+
+
+            </div>
+        </div>
+        <div class="border-b py-5">
+            <div class="text-lg justify-between flex flex-row py-2">
+                <button>
+                English
+            </button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+
+
+            </div>
+            <div class="text-lg  flex flex-row py-2">
+                <button>
+                SYMplified.com
+            </button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+
+
+            </div>
+            <div class="text-lg justify-between flex flex-row py-2">
+                <button>
+                Log in
+            </button>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+
+
+            </div>
+        </div>
+        <div class="border-b py-5">
+            <div class="text-lg justify-between flex flex-row py-2">
+                <button>
+                About
+            </button>
+
+
+
+            </div>
+            <div class="text-lg  flex flex-row py-2">
+                <button>
+                Careers
+            </button>
+
+
+
+            </div>
+            <div class="text-lg justify-between flex flex-row py-2">
+                <button>
+                Press and Media
+                </button>
+
+
+
+            </div>
+            <div class="text-lg justify-between flex flex-row py-2">
+                <button>
+                Enterprise
+                </button>
+
+
+
+            </div>
+            <div class="text-lg justify-between flex flex-row py-2">
+                <button>
+                Sidemap
+                </button>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<!-- Wrapper -->
+<div class="flex flex-col flex-auto w-full min-w-0 bg-white ">
+
+
+
+    <button (click)="toggleButton()" class=" hover:bg-gray-500 p-3 rounded  lg:hidden ml-auto flex items-end ">
+            <i class="material-icons">menu</i> 
+
+        </button>
+    <div class=" flex-1 items-center w-full h-16 px-4 md:px-6 z-49  print:hidden my-4 ">
+        <!-- Navigation toggle button -->
+
+        <div class=" hidden lg:flex lg:justify-between    ">
+            <div class="lg:flex lg:flex-row text-gray-600 text-lg">
+
+                <ul class="lg:inline-flex">
+                    <li> <button md-button class="mr-32">
+                        <img mat-card-image src="favicon-32x32.png" alt="card">
+
+                        </button>
+                    </li>
+                    <li class="flex flex-row">
+                        <button class="m-2 ">    
+
+                            <span class="ml-2 font-bold">Topics</span>
+                            <!--Arrow for changing-->
+                        </button>
+                        <div class="inline-flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </div>
+                    </li>
+
+                    <li class="flex flex-row">
+                        <button class="m-2 ">    
+
+                            <span class="ml-2 font-bold">Developers</span>
+                            <!--Arrow for changing-->
+                        </button>
+                        <div class="inline-flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </div>
+                    </li>
+                    <li class="flex flex-row">
+                        <button class="m-2 ">    
+
+                            <span class="ml-2 font-bold">Support</span>
+                            <!--Arrow for changing-->
+                        </button>
+                        <div class="inline-flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </div>
+                    </li>
+                </ul>
+
+
+            </div>
+
+            <div class="lg:flex lg:flex-row text-gray-600 text-lg">
+
+                <ul class="lg:inline-flex">
+                    <li class="flex flex-row">
+                        <button class="m-2 ">    
+
+                            <span class="ml-2 font-bold">English</span>
+                            <!--Arrow for changing-->
+                        </button>
+                        <div class="inline-flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </div>
+                    </li>
+                    <li class="flex flex-row">
+                        <button class="m-2 ">    
+
+                            <span class="ml-2 font-bold">SYMplified</span>
+                            <!--Arrow for changing-->
+                        </button>
+                        <div class="inline-flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                          </svg>
+                        </div>
+                    </li>
+                    <li> <button class="text-black lg:mx-5 lg:bg-teal-600 lg:text-white py-3 px-5 lg:rounded-md">Log in
+                    
+                    </button></li>
+
+
+
+                </ul>
+
+
+
+
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- Components -->
+
+
+    </div>
+
+    <!--Search bar-->
+
+    <div class="flex items-center justify-center bg-gray-200">
+        <div class="flex border-2 rounded-md bg-white border-teal-600 my-22 p-2  ">
+            <input type="text" class="px-4 py-2 w-80 sm:w-140" placeholder="Search for the documentation">
+            <button class="flex items-center justify-center px-4 border-l">
+                <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!--Bread crumbs-->
+
+    <div class="border-b border-gray-300  flex items-center py-8 px-5">
+        <nav class="flex">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <button class="inline-flex items-center" (click)="onClick(selectedName, firstContent, hasTitle)"> <!--Level 0-->
+                    {{hasTitle}} 
+                </button>
+                <button (click)="onSubClick(selectedSubItem, secondContent, subTitle)"> <!--Level 1 breadcrumb-->
+
+                    <div class="flex items-center">
+                        <div *ngIf="subShow">
+                            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                        </div>
+                        {{subTitle}}
+                    </div>
+
+                </button>
+                <button aria-current="page" (click)="onSubToSubClick(selectedSubToSub, thirdContent, subTosubTitle)"> <!--Level 2 breadcrumb-->
+
+                    <div class="flex items-center">
+                        <div *ngIf="subTosubShow">
+                            <svg class=" w-6 h-6 text-gray-400 " fill="currentColor " viewBox="0 0 20 20 " xmlns="http://www.w3.org/2000/svg "><path fill-rule="evenodd " d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1
+                            1 0 010 1.414l-4 4a1 1 0 01-1.414 0z " clip-rule="evenodd "></path></svg>
+                        </div>
+                       {{subTosubTitle}}
+                    </div>
+
+                </button>
+                <button aria-current="page " (click)="onThird(fourthContent, subThirdTitle)"> <!--Level 3 breadcrumb button-->
+
+                    <div class="flex items-center ">
+                        <div *ngIf="hasthirdChild">
+                            <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                        </div>
+                       {{subThirdTitle}}
+                    </div>
+
+                </button>
+            </ol>
+        </nav>
+
+    </div>
+
+
+
+
+    <div class="flex flex-row ">
+
+        <!--FUSE SIDE NAV-->
+
+
+        <!-- <fuse-vertical-navigation class=" print:hidden " [mode]="isScreenSmall ? 'over' : 'side' " [name]=" 'mainNavigation' " [navigation]="navItems " [opened]="!isScreenSmall " [appearance]=" 'classic' " [autoCollapse]="true " [inner]="false ">
+            <ng-container fuseVerticalNavigationContentHeader>
+                
+                <div class="flex items-center h-20 p-6 pb-0 ">
+
+                </div>
+            </ng-container>
+        </fuse-vertical-navigation> -->
+
+        <!--Tailwind/Angular side nav-->
+        <div class="hidden md:flex-grow-0 ml-20 h-full md:block  ">
+            <aside class=" sticky top-0 flex-grow-0 border-r-2 h-auto  ">
+                <div class=" overflow-hidden whitespace-nowrap py-5 ">
+                    <div class=" " *ngFor="let topics of navItems ">
+
+                        <div class=" flex flex-row focus-within:bg-teal-500   py-2">
+                            <div *ngIf="navItems.length> 0 ">
+                                <div *ngIf="topTopics && topics.id == selectedName ">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                      </svg>
+                                </div>
+
+                                <!-- <ng-template #elseBlock>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path>
+                                    </svg>
+                                    </ng-template>-->
+
+
+                            </div>
+
+                            <button [(ngModel)]="selectedOption" (click)="onClick(topics.id, topics.content, topics.title)" class="hover:underline   pr-20 " type="button">
+                                <!--Topic level 0-->
+                                {{topics.title}}
+
+                                </button>
+                        </div>
+
+
+
+
+
+
+
+                        <div *ngIf="show">
+                            <div class="" *ngFor="let subtopics of subItems">
+                                <div *ngIf="topics.id == subtopics.parentId">
+
+                                    <div class=" flex flex-row focus-within:bg-teal-500 overflow-hidden whitespace-nowrap py-2 px-10">
+                                        <!--Icon with topics having children-->
+                                        <div *ngIf="subtopics.subtopics.length > 0 ">
+                                            <div *ngIf="hasTopic && subtopics.id == selectedSubItem ">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                          </svg>
+                                            </div>
+
+                                            <!-- <ng-template #elseBlock>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path>
+                                            </svg>
+                                            </ng-template>-->
+
+
+                                        </div>
+
+                                        <button class="hover:underline " type="button" (click)="onSubClick(subtopics.id, subtopics.content, subtopics.title)">
+                            
+                                        <!--Topic level 1-->
+                                        {{subtopics.title}}
+        
+                                        </button>
+                                    </div>
+
+                                    <div *ngIf="subShow">
+
+                                        <div class="" *ngFor="let subTotopics of subTosub">
+                                            <div *ngIf="subtopics.id== subTotopics.parentId">
+                                                <!--Icon with topics having children-->
+                                                <div class="flex flex-row focus-within:bg-teal-500 overflow-hidden whitespace-nowrap py-2 px-20  ">
+                                                    <div *ngIf="subTotopics.subtopics.length > 0">
+                                                        <div *ngIf="hasSubTopic && subTotopics.id == selectedSubToSub ">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                      </svg>
+                                                        </div>
+                                                    </div>
+                                                    <button class=" hover:underline " type="button" (click)="onSubToSubClick(subTotopics.id, subTotopics.content, subTotopics.title)">
+                                                        <!--Topic level 2-->               
+                                                        {{subTotopics.title}}
+                                                        </button>
+                                                </div>
+                                                <div *ngIf="subTosubShow">
+                                                    <div class="overflow-hidden whitespace-nowrap   ">
+                                                        <div *ngFor=" let subTosubTopics of secondSub">
+                                                            <div *ngIf=" subTotopics.id == subTosubTopics.parentId">
+                                                                <button class="hover:underline py-2 ml-10 focus-within:bg-teal-500 px-20 w-full" type="button" (click)="onThird(subTosubTopics.content, subTosubTopics.title)">
+                                                        <!-- Topic level 3-->
+                                                        {{subTosubTopics.title}}
+
+                                                        </button>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                    </div>
+
+                </div>
+
+                <!-- reference for toggle
+                <div class="rounded-sm ">
+                    <div class="border border-b-0 bg-gray-100 px-10 py-6 " id="headingOne ">
+                        <button (click)="toggleOption() " class="underline text-blue-500 hover:text-blue-700 focus:outline-none " type="button ">
+                        Collapsible Group Item #1
+                        </button>
+                    </div>
+                    <div *ngIf="show " class="border border-b-0 px-10 py-6 ">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
+                        on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                        farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div> -->
+
+            </aside>
+
+            <main>
+
+            </main>
+        </div>
+
+
+
+
+
+        <!-- Content -->
+        <div class="flex flex-col flex-auto ">
+            <!-- *ngIf="true " hack is required here for router-outlet to work correctly.
+                Otherwise, layout changes won't be registered and the view won't be updated!
+            
+                <router-outlet *ngIf="true "></router-outlet>  -->
+            <!--*Content goes from here*-->
+
+            <!--Mobile view sections    -->
+
+            <!--Mat cards for expandable feature-->
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false" class="md:hidden bg-gray-200 text-black m-5">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title class="text-xl">
+                            Also in this section
+                        </mat-panel-title>
+
+                    </mat-expansion-panel-header>
+                    <div class=" m-10 text-xl text-black ">
+
+                        <div *ngIf="mobileTopic">
+                            <div *ngFor="let section of subMobileList">
+                                <li>
+                                    <button class="underline" (click)="onSubClick(section.id, section.content, section.title)" *ngIf="section.subtopics.length >= 0 ; else NoContent">
+                                {{section.title}}
+        
+                                </button>
+                                </li>
+
+
+
+                            </div>
+                        </div>
+                        <div *ngIf="mobileSubTopic">
+                            <div *ngFor="let subSection of subTosubMobileList">
+                                <li>
+                                    <button class="underline" *ngIf=" subSection.subtopics.length >=0" (click)="onSubToSubClick(subSection.id, subSection.content, subSection.title)">
+                                {{subSection.title}}
+        
+                             </button>
+                                </li>
+
+                            </div>
+                        </div>
+                        <div *ngIf="mobileSubtoSubTopics">
+                            <div *ngFor="let subToSection of subToThirdMobileList">
+                                <li>
+                                    <button class="underline" *ngIf=" subToSection.subtopics.length >=0" (click)="onThird(subToSection.content, subToSection.title)">
+                                {{subToSection.title}}
+        
+                             </button>
+                                </li>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </mat-expansion-panel>
+            </mat-accordion>
+
+
+            <div [innerHTML]="content" class="p-10  ">
+                {{content}}
+
+
+            </div>
+            <!--Card for is this page helpful-->
+            <div class="flex justify-center">
+                <div class="bg-gray-200 m-5 mx-20 rounded-md w-120 ">
+                    <div class="p-5">
+                        <div class="text-lg text-black flex justify-center py-5 ">
+                            Was this page helpful?
+                        </div>
+                        <div class="flex justify-center ">
+                            <button class="text-black lg:mx-5 bg-blue-300 lg:text-white py-3 px-7 rounded-md ">Yes
+                    
+                    </button>
+                            <button class="text-black lg:mx-5 bg-pink-400 lg:text-white py-3 px-7 rounded-md ">No
+                    
+                    </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+    <!--Cannot find container-->
+    <div class="flex justify-center flex-col">
+        <div class="py-5 flex justify-center ">
+            <div class="text-lg ">
+                Can't find the answers you're looking for? We're here to help.
+
+            </div>
+
+
+
+
+
+        </div>
+        <div class=" flex justify-center mb-20 ">
+            <button class="text-white lg:mx-5 bg-teal-900 lg:text-white py-3 px-10 rounded-md flex justify-center ">Contact SYMplified support
+            
+            </button>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <div class="container bg-teal-900 text-white   flex flex-col px-5 ">
+        <div class="border-b border-gray-400 flex-row ">
+            <ul class="px-10 pt-2 nav nav-tabs flex justify-center md:justify-start md:flex-row flex-wrap list-none pl-0 text-md" id="tabs-tab " role="tablist ">
+                <li class="nav-item " role="presentation ">
+                    <a href="#tabs-home " class=" text-md nav-link block font-medium leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-white focus:border-transparent active " id="tabs-home-tab
+                                " data-bs-toggle="pill " data-bs-target="#tabs-home " role="tab " aria-controls="tabs-home " aria-selected="true ">About</a>
+                </li>
+                <li class="nav-item " role="presentation ">
+                    <a href="#tabs-profile " class=" nav-link block font-medium text-lg leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-white focus:border-transparent " id="tabs-profile-tab
+                                " data-bs-toggle="pill " data-bs-target="#tabs-profile " role="tab " aria-controls="tabs-profile " aria-selected="false ">Careers</a>
+                </li>
+                <li class="nav-item " role="presentation ">
+                    <a href="#tabs-messages " class=" nav-link block font-medium text-lg leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-white focus:border-transparent " id="tabs-messages-tab
+                                " data-bs-toggle="pill " data-bs-target="#tabs-messages " role="tab " aria-controls="tabs-messages " aria-selected="false ">Press and Media</a>
+                </li>
+                <li class="nav-item " role="presentation ">
+                    <a href="#tabs-contact " class=" nav-link disabled pointer-events-none block font-medium text-lg leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-white focus:border-transparent
+                                " id="tabs-contact-tab " data-bs-toggle="pill " data-bs-target="#tabs-contact " role="tab " aria-controls="tabs-contact " aria-selected="false ">Enterprise</a>
+                </li>
+                <li class="nav-item " role="presentation ">
+                    <a href="#tabs-sidemap " class=" nav-link disabled pointer-events-none block font-medium text-lg leading-tight uppercase border-x-0 border-t-0 border-b-2 border-transparent px-6 py-3 my-2 hover:border-white focus:border-transparent
+                                " id="tabs-contact-tab " data-bs-toggle="pill " data-bs-target="#tabs-contact " role="tab " aria-controls="tabs-contact " aria-selected="false ">Sidemap</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-6 leading-10 px-3 border-b border-gray-400 text-gray-300">
+
+            <ul class="p-2 invisible sm:visible ">
+                <li class="font-bold sm:py-2 ">ONLINE STORE</li>
+                <li>
+                    <button class="hover:text-white">Sell online</button></li>
+                <li>
+                    <button class="hover:text-white">Features</button></li>
+                <li>
+                    <button class="hover:text-white">Example</button></li>
+                <li>
+                    <button class="hover:text-white">Website Editor</button></li>
+                <li>
+                    <button class="hover:text-white">Online retail</button></li>
+            </ul>
+
+            <ul class="p-2 invisible sm:visible ">
+                <li class="text-teal-900 sm:py-2 ">check</li>
+                <li>
+                    <button class="hover:text-white">Ecommerce website</button></li>
+                <li>
+                    <button class="hover:text-white">Domian names</button></li>
+                <li>
+                    <button class="hover:text-white">Themes</button></li>
+                <li>
+                    <button class="hover:text-white">Shopping cart</button></li>
+                <li>
+                    <button class="hover:text-white">
+                    Ecommerce hosting </button></li>
+            </ul>
+
+            <ul class="p-2 invisible sm:visible ">
+                <li class="text-teal-900 sm:py-2 ">check</li>
+                <li>
+                    <button class="hover:text-white">Mobile commerce</button></li>
+                <li>
+                    <button class="hover:text-white">Ecommerce software</button></li>
+                <li>
+                    <button class="hover:text-white">Online store builder</button></li>
+            </ul>
+
+            <ul class="p-2 invisible sm:visible ">
+                <li class="font-bold sm:py-2 ">POINT OF SALE</li>
+                <li><button class="hover:text-white">Point of sale</button></li>
+                <li><button class="hover:text-white">Features</button></li>
+                <li><button class="hover:text-white">Hardware</button></li>
+                <li><button class="hover:text-white">POS softwre</button></li>
+            </ul>
+
+            <ul class="p-2 ">
+                <li class="font-bold py-2 ">SUPPORT</li>
+                <li>
+                    <button class="hover:text-white"> 24/7 support </button></li>
+                <li>
+                    <button class="hover:text-white"> Community</button></li>
+                <li>
+                    <button class="hover:text-white"> Community events</button></li>
+                <li>
+                    <button class="hover:text-white"> Changelog</button></li>
+                <li><button class="hover:text-white"> API Documentation</button></li>
+                <li><button class="hover:text-white"> Free tools</button></li>
+                <li><button class="hover:text-white"> Free stock photos</button></li>
+                <li><button class="hover:text-white"> Website for sale</button></li>
+            </ul>
+
+            <ul class="p-2 text-gray-300 ">
+                <li class="font-bold py-2 ">SYMplified</li>
+
+                <li>
+                    <button class="hover:text-white"> 
+                    Patrner program
+                </button>
+                </li>
+                <li>
+                    <button class="hover:text-white"> 
+                        Affiliate program
+                </button>
+                </li>
+                <li>
+                    <button class="hover:text-white"> 
+                        App developers
+                </button>
+                </li>
+                <li>
+                    <button class="hover:text-white"> 
+                    Inverstors
+                </button>
+                </li>
+                <li>
+                    <button class="hover:text-white"> 
+                    Accessibility
+                </button>
+                </li>
+            </ul>
+
+
+        </div>
+
+        <div>
+
+        </div>
+
+
+    </div>
+
+</div>
