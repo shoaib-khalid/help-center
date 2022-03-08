@@ -23,6 +23,10 @@ import {MatCardModule} from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import{ MatSidenavModule} from '@angular/material/sidenav';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FilterPipe } from './filter.pipe';
+import { MatTooltip } from '@angular/material/tooltip';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -32,7 +36,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
     declarations: [
-        ClassicLayoutComponent
+        ClassicLayoutComponent,
+        FilterPipe
     ],
     imports     : [
         HttpClientModule,
@@ -57,7 +62,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
         MatCardModule,
         MatFormFieldModule,
         MatSidenavModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatAutocompleteModule,
+        MatInputModule
+       
 
 
     ],

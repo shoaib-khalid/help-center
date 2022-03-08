@@ -12,7 +12,6 @@ import { mockApiServices } from 'app/mock-api';
 import { LayoutModule } from 'app/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
-import { MatTabsModule } from '@angular/material/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -48,6 +47,8 @@ const routerConfig: ExtraOptions = {
         // Layout module of your application
         LayoutModule,
         HttpClientModule,
+        
+        
 
         // 3rd party modules that require global configuration via forRoot
         MarkdownModule.forRoot({})

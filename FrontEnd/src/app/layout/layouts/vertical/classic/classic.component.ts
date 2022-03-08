@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { elementAt, Subject, takeUntil } from 'rxjs';
 import { FuseMediaWatcherService } from '@fuse/services/media-watcher';
 import { FuseNavigationItem, FuseNavigationService, FuseVerticalNavigationComponent } from '@fuse/components/navigation';
 import { Navigation } from 'app/core/navigation/navigation.types';
@@ -9,11 +9,13 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatSidenav } from '@angular/material/sidenav';
 import { ColdObservable } from 'rxjs/internal/testing/ColdObservable';
 import { BLACK_ON_WHITE_CSS_CLASS } from '@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector';
+import { result } from 'lodash';
+import { FormGroup } from '@angular/forms';
 
 export class Headers
 {
     public id: number;
-    public heading: string;
+    public title: string;
     public description: string;
     public content:string;
     public topicLevel: number;
@@ -74,6 +76,12 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
     panelOpenState = false;
     contentCheck: any;
     contentDispay: any;
+    onlyTitle:any;
+    onlyList:any;
+    searchText = '';
+    headings: any;
+    formGroup : FormGroup;
+    onlyID: any;
     
     
 
@@ -113,6 +121,8 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
     ngOnInit(): void
     {
 
+        
+
 
 
         // Subscribe to navigation data
@@ -140,6 +150,7 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
                     
                     console.log("Result", result);
                     this.navItems = result.List;
+                    
                      //updated for starting content and title on our screen
                     this.contentCheck=result;
                     this.contentDispay = this.contentCheck.List.find(item=> item.id ==='0dddbf78-63a7-4bb7-91ec-4435efad1196') ; //starting content will be intro
@@ -147,11 +158,29 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
                     this.hasTitle = this.contentDispay["title"]; //parsing title for breadcrumbs
                     this.subMobileList = this.contentDispay["subtopics"];  
                     this.mobileTopic =true;                                //smaller screen display initially
-                    console.log("NavItems", this.navItems, this.content, this.subMobileList);
+                    console.log("NavItems", this.navItems, this.content, this.onlyTitle);
+                    
                   
                 }
     
             );
+
+            //testing only List
+            this.httpClient.get<any>('http://localhost:8080/help-centre/topics').subscribe(
+                result =>{
+                    this.onlyList = result.List;
+                     this.headings = this.onlyList;
+                    // this.onlyID = this.onlyList.map(List => List.id);
+                    
+                     
+                    console.log("Check",this.headings);
+                    //console.log("Searched text", this.searchText);
+                    
+                    
+                }
+
+
+            )
             // result.List.map()
            /* const map = this.list.map(function(obj)
             {
