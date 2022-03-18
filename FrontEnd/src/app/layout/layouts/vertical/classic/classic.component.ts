@@ -82,6 +82,15 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
     headings: any;
     formGroup : FormGroup;
     onlyID: any;
+    searchClick: any;
+   // selectedTitle:any;
+    searchTitle:any;
+    searchEntries: any;
+    searchID: any;
+    titleSearch: any;
+    topicLevelSearch: any;
+    searchParentID: any;
+ 
     
     
 
@@ -121,7 +130,7 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
     ngOnInit(): void
     {
 
-        
+      
 
 
 
@@ -168,12 +177,13 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
             //testing only List
             this.httpClient.get<any>('http://localhost:8080/help-centre/topics').subscribe(
                 result =>{
-                    this.onlyList = result.List;
-                     this.headings = this.onlyList;
+                    this.onlyList = result.List; //full list
+                     this.headings = this.onlyList.map(List => List.title);
                     // this.onlyID = this.onlyList.map(List => List.id);
                     
                      
-                    console.log("Check",this.headings);
+                  
+                  
                     //console.log("Searched text", this.searchText);
                     
                     
@@ -401,7 +411,43 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
     toggleOption()
     {
         this.show =! this.show;
-        console.log("Hello",this.show);
+        //console.log("Hello",this.show);
+    }
+
+    onSearch()
+    {
+        this.searchTitle  = this.searchText;
+        this.searchEntries = this.onlyList.find(item=> item.title === this.searchTitle) ;
+        this.searchID = this.searchEntries["id"];
+        this.content = this.searchEntries["content"];
+        this.titleSearch = this.searchEntries["title"];
+        this.topicLevelSearch = this.searchEntries["topicLevel"];
+        this.searchParentID = this.searchEntries["parentId"];
+
+       if(this.topicLevelSearch == "0")
+        {
+            this.onClick(this.searchID, this.content, this.titleSearch);
+        }
+        if(this.topicLevelSearch == "1")
+        {
+            this.onClick(this.searchParentID, this.content, this.titleSearch);
+
+            this.onSubClick(this.searchID, this.content, this.titleSearch);
+
+        }
+        if(this.topicLevelSearch=="2")
+        {
+            this.onClick(this.searchParentID, this.content, this.titleSearch);
+            this.onSubClick(this.searchParentID, this.content, this.titleSearch);
+            this.onSubToSubClick(this.searchID, this.content, this.titleSearch);
+        }   
+        if(this.topicLevelSearch =="3"){
+            this.onClick(this.searchParentID, this.content, this.titleSearch);
+            this.onSubClick(this.searchParentID, this.content, this.titleSearch);
+            this.onSubToSubClick(this.searchParentID, this.content, this.titleSearch);
+            this.onThird(this.content, this.titleSearch);
+            }
+        console.log(this.searchParentID);
     }
 
     

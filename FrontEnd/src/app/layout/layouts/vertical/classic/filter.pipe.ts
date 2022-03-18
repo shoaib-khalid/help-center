@@ -9,7 +9,7 @@ export class FilterPipe implements PipeTransform {
    * @param searchText search string
    * @returns list of elements filtered by search text or []
    */
-  transform(items: any[], searchText: string): any[] {
+  transform(items: any[], searchText: any): any[] {
     if (!items) {
       return [];
     }
@@ -19,7 +19,7 @@ export class FilterPipe implements PipeTransform {
     searchText = searchText.toLocaleLowerCase();
 
     return items.filter(it => {
-      return it.toLocaleLowerCase().includes(searchText);
+      return it.toString().toLocaleLowerCase().includes(searchText);
     });
   }
 }
