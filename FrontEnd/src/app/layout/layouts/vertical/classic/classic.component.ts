@@ -90,6 +90,9 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
     titleSearch: any;
     topicLevelSearch: any;
     searchParentID: any;
+    searchTop: any;
+    serachTopId: any;
+    topTtile: any;
  
     
     
@@ -424,8 +427,15 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
         this.topicLevelSearch = this.searchEntries["topicLevel"];
         this.searchParentID = this.searchEntries["parentId"];
 
+        this.searchTop =  this.onlyList.find(item=> item.id === this.searchParentID) ;
+        this.serachTopId = this.searchTop["parentId"];
+        this.topTtile = this.searchTop["title"];
+
        if(this.topicLevelSearch == "0")
         {
+            /*this.subTitle=''
+            this.subTosubTitle= ''*/
+       
             this.onClick(this.searchID, this.content, this.titleSearch);
         }
         if(this.topicLevelSearch == "1")
@@ -433,21 +443,23 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
             this.onClick(this.searchParentID, this.content, this.titleSearch);
 
             this.onSubClick(this.searchID, this.content, this.titleSearch);
+            
 
         }
         if(this.topicLevelSearch=="2")
         {
-            this.onClick(this.searchParentID, this.content, this.titleSearch);
+            this.onClick(this.serachTopId, this.content, this.topTtile);
             this.onSubClick(this.searchParentID, this.content, this.titleSearch);
             this.onSubToSubClick(this.searchID, this.content, this.titleSearch);
-        }   
-        if(this.topicLevelSearch =="3"){
+        } 
+        /*   
+       if(this.topicLevelSearch =="3"){
             this.onClick(this.searchParentID, this.content, this.titleSearch);
             this.onSubClick(this.searchParentID, this.content, this.titleSearch);
             this.onSubToSubClick(this.searchParentID, this.content, this.titleSearch);
             this.onThird(this.content, this.titleSearch);
-            }
-        console.log(this.searchParentID);
+            }*/
+        console.log("top level",this.serachTopId);
     }
 
     
