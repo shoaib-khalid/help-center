@@ -14,7 +14,7 @@ export const appRoutes: Route[] = [
 
  
  
-    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'intro/shopify'},
+    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'symplified'},
 
     // Auth routes for guests
     {
@@ -86,12 +86,14 @@ export const appRoutes: Route[] = [
         },
         children   : [
            //{path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
+           
+           {path: 'symplified', loadChildren: ()=> import('app/modules/admin/symplified/symplified.module').then(m=>m.SymplifiedModule) },        
+
            {path: 'intro', children:[
             {path: 'shopify', loadChildren: () => import('app/modules/admin/intro/shopify/shopify.module').then(m => m.ShopifyModule)},
             {path: 'overview', loadChildren: () => import('app/modules/admin/intro/overview/overview.module').then(m => m.OverviewModule)}
            ]
-            },
-            {path: 'symplified', loadChildren: ()=> import('app/modules/admin/symplified/symplified.module').then(m=>m.SymplifiedModule) }        
+            }
 
          
           

@@ -39,6 +39,8 @@ export class AddTopicComponent implements OnInit
     updateInfo: any;
     parseID: any;
     parentId: any;
+    topicTitle:any;
+    updateTitle: any;
     //data: any= [];
 
     ChangeTopic(e)
@@ -68,7 +70,7 @@ export class AddTopicComponent implements OnInit
     onSubmit(data)
     {
         
-        console.log(data);
+        console.log("posting data", data);
        this.helpData.saveTopic(data).subscribe((result)=> 
         {
             console.warn(result);
@@ -110,7 +112,6 @@ export class AddTopicComponent implements OnInit
     getUpdate()
     {
         //this.updateInfo=event;
-        console.log("Update check", this.selectedUpdate);
         this.parseData = this.selectedUpdate;
         this.parseTitle= this.parseData["title"];
         this.parseID = this.parseData["id"];
@@ -122,12 +123,15 @@ export class AddTopicComponent implements OnInit
         console.log("content", this.parseContent);
         console.log("ID", this.parseID);
         console.log("parent Id is", this.parentId);
+        this.updateTitle = this.topicTitle
+        console.log("Update check", this.selectedUpdate, this.updateTitle);
+
 
       
     }
     putUpdate(eventID, datax)
     {
-        console.log("checking update", this.parseData, eventID, datax); 
+        console.log("checking update", eventID, datax); 
           this.helpData.updateTopic(datax ,eventID).subscribe(result=>
         {
             console.warn(this.parseContent);

@@ -93,6 +93,8 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
     searchTop: any;
     serachTopId: any;
     topTtile: any;
+    arrowShow : boolean = true;
+    arrowSubShow: boolean = true;
  
     
     
@@ -273,7 +275,9 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
         //this.show= false;
         this.hasTitle=null;
        // this.subTitle = "";
-        this.show = true;
+        this.show =! this.show;
+        this.arrowShow = ! this.arrowShow;
+        this.arrowSubShow = true;
         this.subTitle="";//removing level 1 in breadcrumbs
         this.subTosubTitle="";  //removing level 2 in breadcrumbs
 
@@ -329,13 +333,14 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
 
         //this.show = true;
         //this.subShow = false;
-        this.subShow = true;
+        this.subShow =! this.subShow;
         this.subTosub =[];
         this.hasTopic = true ;
         this.subTosubShow = false;//removing list of lvl 3
         this.hasSubTopic = false; //icon of lvl2
         this.subMobileList =[]
         this.subToThirdMobileList=[]
+        this.arrowSubShow =! this.arrowSubShow;
 
 
         
@@ -373,7 +378,7 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
           this.hasSubTopic = true;
           this.content = eventy;
           this.thirdContent= eventy; //content for 3rd breadcrumbs
-          this.subTosubShow = true;
+          this.subTosubShow =! this.subTosubShow;
           this.subTosubTitle= eventz;
           this.hasChild =! this.hasChild;
           this.hasthirdChild = false;

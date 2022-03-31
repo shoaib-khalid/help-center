@@ -189,98 +189,29 @@
         <!-- Navigation toggle button -->
 
         <div class=" hidden lg:flex lg:justify-between    ">
-            <div class="lg:flex lg:flex-row text-gray-600 text-lg">
+            <div class="lg:flex lg:flex-row ">
 
                 <ul class="lg:inline-flex">
-                    <li> <button md-button class="mr-32">
-                        <img mat-card-image src="favicon-32x32.png" alt="card">
+                    <li> <button md-button class="mr-10">
+                        <img mat-card-image src="https://www.dropbox.com/s/6liwovtkfs44nt7/logo_symplified_bg-removebg.png?raw=1" alt="card" class="object-cover h-14 w-full">
 
                         </button>
                     </li>
-                    <li class="flex flex-row">
-                        <button class="m-2 ">    
-
-                            <span class="ml-2 font-bold">Topics</span>
-                            <!--Arrow for changing-->
-                        </button>
-                        <div class="inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                          </svg>
-                        </div>
-                    </li>
-
-                    <li class="flex flex-row">
-                        <button class="m-2 ">    
-
-                            <span class="ml-2 font-bold">Developers</span>
-                            <!--Arrow for changing-->
-                        </button>
-                        <div class="inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                          </svg>
-                        </div>
-                    </li>
-                    <li class="flex flex-row">
-                        <button class="m-2 ">    
-
-                            <span class="ml-2 font-bold">Support</span>
-                            <!--Arrow for changing-->
-                        </button>
-                        <div class="inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                          </svg>
-                        </div>
-                    </li>
-                </ul>
-
-
-            </div>
-
-            <div class="lg:flex lg:flex-row text-gray-600 text-lg">
-
-                <ul class="lg:inline-flex">
-                    <li class="flex flex-row">
-                        <button class="m-2 ">    
-
-                            <span class="ml-2 font-bold">English</span>
-                            <!--Arrow for changing-->
-                        </button>
-                        <div class="inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                          </svg>
-                        </div>
-                    </li>
-                    <li class="flex flex-row">
-                        <button class="m-2 ">    
-
-                            <span class="ml-2 font-bold">SYMplified</span>
-                            <!--Arrow for changing-->
-                        </button>
-                        <div class="inline-flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                          </svg>
-                        </div>
-                    </li>
-                    <li> <button class="text-black lg:mx-5 lg:bg-teal-600 lg:text-white py-3 px-5 lg:rounded-md">Log in
-                    
-                    </button></li>
 
 
 
                 </ul>
 
 
-
-
-
-
-
             </div>
+
+
+
+
+
+
+
+
 
 
 
@@ -385,30 +316,42 @@
         <div class="hidden md:flex-grow-0 ml-20 h-full md:block  ">
             <aside class=" sticky top-0 flex-grow-0 border-r-2 h-auto  ">
                 <div class=" overflow-hidden whitespace-nowrap py-5 ">
-                    <div class=" " *ngFor="let topics of navItems ">
+                    <div *ngFor="let topics of navItems ">
 
-                        <div class=" flex flex-row focus-within:bg-teal-500   py-2">
+                        <div class=" flex flex-row focus-within:bg-teal-500   py-2 justify-between mr-5 ">
+
+
+                            <button (click)="onClick(topics.id, topics.content, topics.title)" class="hover:underline pr-10 " type="button">
+                                <!--Topic level 0-->
+                                {{topics.title}}
+                                
+
+                                </button>
                             <div *ngIf="navItems.length> 0 ">
-                                <div *ngIf="topTopics && topics.id == selectedName ">
+                                <ng-template #arrowUp>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
                                       </svg>
+                                </ng-template>
+
+                                <!--lower arrow-->
+                                <div *ngIf="topTopics && topics.id == selectedName && arrowShow == false ; else arrowUp">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                          </svg>
                                 </div>
 
+
                                 <!-- <ng-template #elseBlock>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path>
-                                    </svg>
-                                    </ng-template>-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path>
+                                        </svg>
+                                        </ng-template>-->
 
 
                             </div>
 
-                            <button [(ngModel)]="selectedOption" (click)="onClick(topics.id, topics.content, topics.title)" class="hover:underline   pr-20 " type="button">
-                                <!--Topic level 0-->
-                                {{topics.title}}
 
-                                </button>
                         </div>
 
 
@@ -418,16 +361,29 @@
 
 
                         <div *ngIf="show">
-                            <div class="" *ngFor="let subtopics of subItems">
+                            <div *ngFor="let subtopics of subItems">
                                 <div *ngIf="topics.id == subtopics.parentId">
 
-                                    <div class=" flex flex-row focus-within:bg-teal-500 overflow-hidden whitespace-nowrap py-2 px-10">
+                                    <div class=" flex flex-row focus-within:bg-teal-500 overflow-hidden whitespace-nowrap py-2 px-5 justify-between">
                                         <!--Icon with topics having children-->
+
+
+                                        <button class="hover:underline " type="button" (click)="onSubClick(subtopics.id, subtopics.content, subtopics.title)">
+                            
+                                        <!--Topic level 1-->
+                                        {{subtopics.title}}
+        
+                                        </button>
                                         <div *ngIf="subtopics.subtopics.length > 0 ">
-                                            <div *ngIf="hasTopic && subtopics.id == selectedSubItem ">
+                                            <ng-template #arrowUp>
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                          </svg>
+                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                              </svg>
+                                            </ng-template>
+                                            <div *ngIf="hasTopic && subtopics.id == selectedSubItem && arrowSubShow == false; else arrowUp">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                 </svg>
                                             </div>
 
                                             <!-- <ng-template #elseBlock>
@@ -438,13 +394,6 @@
 
 
                                         </div>
-
-                                        <button class="hover:underline " type="button" (click)="onSubClick(subtopics.id, subtopics.content, subtopics.title)">
-                            
-                                        <!--Topic level 1-->
-                                        {{subtopics.title}}
-        
-                                        </button>
                                     </div>
 
                                     <div *ngIf="subShow">
@@ -452,24 +401,30 @@
                                         <div class="" *ngFor="let subTotopics of subTosub">
                                             <div *ngIf="subtopics.id== subTotopics.parentId">
                                                 <!--Icon with topics having children-->
-                                                <div class="flex flex-row focus-within:bg-teal-500 overflow-hidden whitespace-nowrap py-2 px-20  ">
-                                                    <div *ngIf="subTotopics.subtopics.length > 0">
-                                                        <div *ngIf="hasSubTopic && subTotopics.id == selectedSubToSub ">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                                      </svg>
-                                                        </div>
-                                                    </div>
+                                                <div class="flex flex-row focus-within:bg-teal-500 overflow-hidden whitespace-nowrap py-2 px-10  justify-between">
+
                                                     <button class=" hover:underline " type="button" (click)="onSubToSubClick(subTotopics.id, subTotopics.content, subTotopics.title)">
                                                         <!--Topic level 2-->               
                                                         {{subTotopics.title}}
                                                         </button>
+                                                    <div *ngIf="subTotopics.subtopics.length > 0">
+                                                        <ng-template #arrowUp>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                                              </svg>
+                                                        </ng-template>
+                                                        <div *ngIf="hasSubTopic && subTotopics.id == selectedSubToSub; else arrowUp ">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                          </svg>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div *ngIf="subTosubShow">
                                                     <div class="overflow-hidden whitespace-nowrap   ">
                                                         <div *ngFor=" let subTosubTopics of secondSub">
                                                             <div *ngIf=" subTotopics.id == subTosubTopics.parentId">
-                                                                <button class="hover:underline py-2 ml-10 focus-within:bg-teal-500 px-20 w-full" type="button" (click)="onThird(subTosubTopics.content, subTosubTopics.title)">
+                                                                <button class="hover:underline py-2 ml-10 focus-within:bg-teal-500 pl-20 w-full" type="button" (click)="onThird(subTosubTopics.content, subTosubTopics.title)">
                                                         <!-- Topic level 3-->
                                                         {{subTosubTopics.title}}
 

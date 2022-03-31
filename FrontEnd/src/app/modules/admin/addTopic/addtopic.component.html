@@ -13,7 +13,7 @@
 
         <div class="flex items-center justify-center bg-gray-200 rounded-lg flex-col m-5 ">
             <div class="flex border-2 rounded-md bg-white border-teal-600 my-22 p-2 justify-around ">
-                <input type="text" class="px-4 py-2 w-80 sm:w-140" ngModel name="title" placeholder="Enter topic name " [value]="parseTitle">
+                <input type="text" class="px-4 py-2 w-80 sm:w-140" name="title" placeholder="Enter topic name " [value]="parseTitle" [(ngModel)]="topicTitle">
 
 
 
@@ -48,11 +48,11 @@
                 <!--To post-->
                 <select name="dropDown" class="form-control overflow-y-scroll m-5 p-5" [(ngModel)]="selectedUpdate" (change)="getUpdate()" ngModel>
                 
-                    <option *ngFor="let topi of dropDown" [ngValue]="topi" >
+                    <option *ngFor="let topic of dropDown" [ngValue]="topic" >
                          
                            
                     
-                        {{topi.title}}
+                        {{topic.title}}
                         
                             
                            
@@ -77,12 +77,13 @@
 
 
         </div>
+        <div class="flex justify-center m-5">
+            <button class="text-black lg:mx-5 bg-orange-400 lg:text-white py-3 px-7 rounded-md  " (click)="putUpdate(parseID, topicPost.value) ">Update
+                    
+            </button>
+        </div>
     </form>
-    <div class="flex justify-center m-5">
-        <button class="text-black lg:mx-5 bg-orange-400 lg:text-white py-3 px-7 rounded-md  " (click)="putUpdate(parseID, topicPost.value) ">Update
-                
-        </button>
-    </div>
+
 
 
 </div>
