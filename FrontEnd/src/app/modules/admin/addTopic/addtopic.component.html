@@ -3,7 +3,7 @@
 
     <div class=" hidden lg:flex lg:justify-center  m-5  ">
         <div class="lg:flex lg:flex-row text-gray-600 text-xl font-bold m-5">
-            Add Topics
+            Add/Update Topics
 
         </div>
 
@@ -11,16 +11,17 @@
     <form #topicPost="ngForm" (ngSubmit)="onSubmit(topicPost.value)" method="post">
 
 
+        <!-- Checking div for ngfor-->
         <div class="flex items-center justify-center bg-gray-200 rounded-lg flex-col m-5 ">
             <div class="flex border-2 rounded-md bg-white border-teal-600 my-22 p-2 justify-around ">
-                <input type="text" class="px-4 py-2 w-80 sm:w-140" name="title" placeholder="Enter topic name " [value]="parseTitle" [(ngModel)]="topicTitle">
+                <input type="text" class="px-4 py-2 w-80 sm:w-140" name="title" placeholder="Enter topic name " [value]="updateHead" [(ngModel)]="topicTitle">
 
 
 
 
             </div>
             <div class=" border-2 rounded-md bg-white border-teal-600 my-22 p-2 h-full overflow-y-scroll">
-                <input type="text" class="px-4  w-80 sm:w-140 h-full   " ngModel name="topicLevel" placeholder="Enter topic level " [value]="parseLevel">
+                <input type="text" class="px-4  w-80 sm:w-140 h-full   " ngModel name="topicLevel" placeholder="Enter topic level " [value]="updateLevel">
 
 
 
@@ -28,8 +29,21 @@
 
 
             <div class="bg-white rounded-lg p-5 m-5">
-                <textarea class="resize-x" matInput cdkTextareaAutosize cdkAutosizeMinRows="6" ngModel name="content" placeholder="Enter topic content " [value]=" parseContent"></textarea>
+                <textarea class="resize-x" matInput cdkTextareaAutosize cdkAutosizeMinRows="6" name="content" placeholder="Enter topic content " [value]=" updateContent" [(ngModel)]="updateContent"></textarea>
             </div>
+            Preview:
+            <div class="bg-white  rounded-lg px-50 py-20">
+
+                <div [innerHTML]="updateContent">
+                    {{updateContent}}
+                </div>
+            </div>
+
+            <!--HTML Preview
+            <div [innerHTML]="updateContent">
+                {{updateContent}}
+
+            </div>-->
 
 
             <div class="justify-between">
@@ -75,14 +89,19 @@
             
             </button>
 
+            <div class="flex justify-center m-5">
+
+            </div>
 
         </div>
-        <div class="flex justify-center m-5">
-            <button class="text-black lg:mx-5 bg-orange-400 lg:text-white py-3 px-7 rounded-md  " (click)="putUpdate(parseID, topicPost.value) ">Update
-                    
-            </button>
-        </div>
+
+
+
     </form>
+    <button class="text-black lg:mx-5 bg-orange-400 lg:text-white py-3 px-7 rounded-md  " (click)="putUpdate(parseID, topicPost.value) ">Update
+                        
+    </button>
+
 
 
 

@@ -39,8 +39,14 @@ export class AddTopicComponent implements OnInit
     updateInfo: any;
     parseID: any;
     parentId: any;
-    topicTitle:any;
+    topicTitle: any;
     updateTitle: any;
+    updateValue: any;
+    updateID: any;
+    updateHead: any;
+    updateContent: any;
+    updateLevel: any;
+    previewText: any;
     //data: any= [];
 
     ChangeTopic(e)
@@ -113,18 +119,34 @@ export class AddTopicComponent implements OnInit
     {
         //this.updateInfo=event;
         this.parseData = this.selectedUpdate;
-        this.parseTitle= this.parseData["title"];
+        //this.parseTitle= this.parseData["title"];
         this.parseID = this.parseData["id"];
-        this.parseLevel = this.parseData["topicLevel"];
-        this.parseContent = this.parseData["content"];
-        this.parentId = this.parseData["parentId"];
+        //this.parseLevel = this.parseData["topicLevel"];
+        //this.parseContent = this.parseData["content"];
+        //this.parentId = this.parseData["parentId"];
+
+        //searching by ID
+        this.httpClient.get<any>('http://localhost:8080/help-centre/topics/'+this.parseID+'').subscribe(
+            result => {
+
+                this.updateValue = result.Topic;
+                console.log("get update", this.updateValue)
+                this.updateID = this.updateValue["id"];
+                this.updateHead = this.updateValue["title"];
+                this.updateContent= this.updateValue["content"];
+                this.updateLevel = this.updateValue["topicLevel"];
+            }
+            
+        );
+
+      
         console.log("id", this.parseTitle);
         console.log("level", this.parseLevel);
         console.log("content", this.parseContent);
         console.log("ID", this.parseID);
         console.log("parent Id is", this.parentId);
-        this.updateTitle = this.topicTitle
-        console.log("Update check", this.selectedUpdate, this.updateTitle);
+        //this.updateTitle = this.topicTitle
+        console.log("Update check", this.topicTitle);
 
 
       
@@ -139,6 +161,11 @@ export class AddTopicComponent implements OnInit
         
         );
        // window.location.reload();
+
+    }
+    previewContent()
+    {
+        console.log("Preiview: ", this.previewText);
 
     }
 }
