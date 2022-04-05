@@ -137,23 +137,23 @@ export class AddTopicComponent implements OnInit
                 this.updateLevel = this.updateValue["topicLevel"];
             }
             
-        );
+        );  
 
       
-        console.log("id", this.parseTitle);
-        console.log("level", this.parseLevel);
-        console.log("content", this.parseContent);
+       // console.log("id", this.parseTitle);
+        //console.log("level", this.parseLevel);
+        //console.log("content", this.parseContent);
         console.log("ID", this.parseID);
-        console.log("parent Id is", this.parentId);
+        //console.log("parent Id is", this.parentId);
         //this.updateTitle = this.topicTitle
-        console.log("Update check", this.topicTitle);
+        //console.log("Update check", this.topicTitle);
 
 
       
     }
     putUpdate(eventID, datax)
     {
-        console.log("checking update", eventID, datax); 
+        console.log("put update", eventID, datax); 
           this.helpData.updateTopic(datax ,eventID).subscribe(result=>
         {
             console.warn(this.parseContent);
