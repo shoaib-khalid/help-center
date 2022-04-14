@@ -123,7 +123,7 @@ public class TopicService {
                 + "content = " + topic.getContent() + "\n"
                 + "topicLevel = " + topic.getTopicLevel() + "\n"
                 + "type = " + topic.getType() + "\n" 
-                + "link = " + topic.getLink() + "\n"
+                + "timeStamp = " + topic.getTimeStamp() + "\n"
                 + "parentId = " + topic.getParentId();
         
         for(Topic findTopic : topics){
@@ -151,6 +151,8 @@ public class TopicService {
                 updateTopic.setContent(topic.getContent());
                 updateTopic.setTopicLevel(topic.getTopicLevel());
                 updateTopic.setParentId(topic.getParentId());
+                updateTopic.setTimeStamp(topic.getTimeStamp());
+                
     		return new ResponseEntity<>(topicRepository.save(updateTopic),HttpStatus.OK);
     		
     	}

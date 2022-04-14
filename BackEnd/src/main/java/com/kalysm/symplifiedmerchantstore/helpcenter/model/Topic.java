@@ -54,8 +54,8 @@ public class Topic implements Serializable {
     @Column(name = "type")
     private String type;
 
-    @Column(name = "link")
-    private String link;
+    @Column(name = "time_stamp")
+    private String timeStamp;
     
     @Column(name = "parent_id")
     private String parentId;

@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { result } from 'lodash';
@@ -14,6 +15,7 @@ export class Model
     public type: string;
     public link: string;
     public subtopics:[];
+    public timeStamp:string;
 }
 
 @Component({
@@ -47,6 +49,9 @@ export class AddTopicComponent implements OnInit
     updateContent: any;
     updateLevel: any;
     previewText: any;
+    currentDateTime: string;
+    currentDateTimex: any;
+    updateParentID: any;
     //data: any= [];
 
     ChangeTopic(e)
@@ -56,13 +61,16 @@ export class AddTopicComponent implements OnInit
     /** 
      * Constructor
      */
-    constructor(private helpData: HelpserviceService, private httpClient: HttpClient)
+    constructor(private helpData: HelpserviceService, private httpClient: HttpClient, public datePipe: DatePipe)
     {
         this.helpData.servicdata().subscribe((data)=>
         {
             this.topics=data;
             //this.check = this.topics.List;
             console.log("test id", this.topics.List);
+             this.currentDateTime =this.datePipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
+  
+            console.log(this.currentDateTime);
         })
     }
     ngOnInit(): void {
@@ -75,7 +83,7 @@ export class AddTopicComponent implements OnInit
 
     onSubmit(data)
     {
-        
+       
         console.log("posting data", data);
        this.helpData.saveTopic(data).subscribe((result)=> 
         {
@@ -83,9 +91,19 @@ export class AddTopicComponent implements OnInit
         });
       // window.location.reload();
 
+      
+
     
 
     } 
+
+    checkTime()
+    {
+        let currentDateTime =this.datePipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
+  
+        console.log(currentDateTime);
+
+    }
 
     getTopicDropDown()
     {
@@ -93,7 +111,7 @@ export class AddTopicComponent implements OnInit
             result => {
              
                 this.dropDown = result.List;
-                console.log(result);
+                console.log("Dropdown",result);
               
             }
 
@@ -135,6 +153,8 @@ export class AddTopicComponent implements OnInit
                 this.updateHead = this.updateValue["title"];
                 this.updateContent= this.updateValue["content"];
                 this.updateLevel = this.updateValue["topicLevel"];
+                this.updateParentID = this.updateValue["parentId"]
+                this.currentDateTime = this.updateValue["timeStamp"];
             }
             
         );  

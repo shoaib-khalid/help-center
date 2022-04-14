@@ -21,6 +21,7 @@ export class HelpserviceService {
 
   updateTopic(data, topicID)
   {
+    console.log("Updating", data);
     const updateURL = 'http://localhost:8080/help-centre/topics/' + topicID;
     return this.http.put(updateURL, data );
   }

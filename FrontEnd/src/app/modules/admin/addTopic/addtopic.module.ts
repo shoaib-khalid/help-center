@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { AddTopicComponent } from './addtopic.component';
 import { Route, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +16,8 @@ const addTopicroute: Route[] = [
 ];
 @NgModule({
   declarations: [
-      AddTopicComponent
+      AddTopicComponent,
+    
   ],
   imports: [
     CommonModule,
@@ -27,6 +28,9 @@ const addTopicroute: Route[] = [
     MatOptionModule,
     RouterModule.forChild(addTopicroute)
 
+  ], 
+  providers:[
+    DatePipe
   ]
 })
 export class AddTopicModule { }

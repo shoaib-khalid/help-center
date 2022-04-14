@@ -27,6 +27,13 @@
 
             </div>
 
+            <div class=" border-2 rounded-md bg-white border-teal-600 my-22 p-2 h-full overflow-y-scroll">
+                <input name="timeStamp" type="text" class="px-4  w-80 sm:w-140 h-full" [value]="currentDateTime" [(ngModel)]="currentDateTime">
+
+
+
+            </div>
+
 
             <div class="bg-white rounded-lg p-5 m-5">
                 <textarea class="resize-x" matInput cdkTextareaAutosize cdkAutosizeMinRows="6" name="content" placeholder="Enter topic content " [value]=" updateContent" [(ngModel)]="updateContent"></textarea>
@@ -101,6 +108,10 @@
                             
         </button>
     </div>
+
+    <button (click)="checkTime()">
+        Test
+    </button>
 
 
 

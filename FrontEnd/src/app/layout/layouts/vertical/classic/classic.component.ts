@@ -25,7 +25,8 @@ export class Headers
 @Component({
     selector     : 'classic-layout',
     templateUrl  : './classic.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    
 })
 export class ClassicLayoutComponent implements OnInit, OnDestroy
 {
@@ -95,6 +96,9 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
     topTtile: any;
     arrowShow : boolean = true;
     arrowSubShow: boolean = true;
+    topicLevels: any;
+    closed: string;
+    details: NodeListOf<HTMLDetailsElement>;
  
     
     
@@ -164,6 +168,15 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
                     
                     console.log("Result", result);
                     this.navItems = result.List;
+
+                    this.sortByLastModified();
+                    console.log("Sorted", this.navItems);
+                    
+
+                    
+
+
+
                     
                      //updated for starting content and title on our screen
                     this.contentCheck=result;
@@ -210,6 +223,21 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
         this.showMobile =!this.showMobile;
          this.color = "#000000";
     }
+
+
+    sortByLastModified()
+    {
+        return this.navItems.sort((a: any, b:any)=>
+        {
+            return <any> new Date(a.timeStamp)- <any>new Date(b.timeStamp);
+            
+        }
+        
+        );
+        
+    }
+
+  
 
     /**
      * On destroy
@@ -268,21 +296,25 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
         );
     }*/
     
-    onClick(event1, event2,event3) {
+    onClick(event1, event2,event3, event4) {
        
         //var value = idAttr.nodeValue;
         
         //this.show= false;
         this.hasTitle=null;
+        //this.show= false;
        // this.subTitle = "";
-        this.show =! this.show;
+       
         this.arrowShow = ! this.arrowShow;
         this.arrowSubShow = true;
         this.subTitle="";//removing level 1 in breadcrumbs
         this.subTosubTitle="";  //removing level 2 in breadcrumbs
 
-
+        this.subTosubShow = false;
+        this.subShow = false;
         this.subThirdTitle=""; //removing 3rd level when jumping in breadcrumbs
+
+        this.closed = "open"
         
         this.subItems= [];
     
@@ -290,7 +322,42 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
         this.content = event2;
         this.firstContent= event2; //content for breadcrumbs
         this.hasTitle=event3;
-        this.subShow = false;
+        this.topicLevels = event4;
+
+     
+        this.show =! this.show;
+
+         this.details = document.querySelectorAll("details");
+        this.details.forEach((targetDetail) => {
+            targetDetail.addEventListener("click", () => {
+              // Close all the details that are not targetDetail.
+              this.details.forEach((detail) => {
+                if (detail !== targetDetail) {
+                  detail.removeAttribute("open");
+                }
+              });
+            });
+          });
+        
+       /*  if(this.selectedName == this.selectedName)
+        {
+            
+            
+            console.log("nav test")
+            this.show=! this.show;
+
+        
+        }
+       else 
+        {
+            this.show= true;
+            console.log("nav else test for side nav")
+           
+            
+        }*/
+
+
+        //this.subShow = false;
         this.topTopics= true;
         this.hasTopic = false ;//removing previous icon of level1 
         this.mobileTopic= true; //for mobile veiw level 0-1
@@ -310,10 +377,11 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
                 
             
                 this.subItems = result.List;
+                this.sortSubTopicsbyLastModified();
                 this.subMobileList = result.List;
 
                 console.log("SubItems", this.subItems, this.subMobileList); //onclick getting level 1 item
-              
+                //console.log("Sorted", )
             }
 
         );
@@ -321,6 +389,17 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
         
    
 
+      }
+
+      sortSubTopicsbyLastModified()
+      {
+          return this.subItems.sort((a: any, b:any)=>
+          {
+              return <any> new Date(a.timeStamp)- <any>new Date(b.timeStamp);
+              
+          }
+          
+          );  
       }
 
       //function for subtopics
@@ -331,9 +410,9 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
         this.subTitle="";
         this.subThirdTitle=""; //removing 3rd level when jumping in breadcrumbs
 
-        //this.show = true;
+        //this.show = false;
         //this.subShow = false;
-        this.subShow =! this.subShow;
+        this.subShow = true;
         this.subTosub =[];
         this.hasTopic = true ;
         this.subTosubShow = false;//removing list of lvl 3
@@ -354,6 +433,8 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
 
         console.log("Button Sub ID", event);
         this.selectedSubItem = event;
+
+       
           //calling sub-sub topics of subtopics
        this.httpClient.get<any>('http://localhost:8080/help-centre/topics/subtopics/'+this.selectedSubItem+'').subscribe(
             result => {
@@ -361,6 +442,7 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
                 
             
                 this.subTosub = result.List;
+                this.sortSubToSubTopicsbyLastModified();
                 this.subTosubMobileList= result.List;
                // this.getId = this.subTosub[0];
                 console.log("Sub to sub Items", this.subTosub );
@@ -370,6 +452,16 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
         );
 
       }
+      sortSubToSubTopicsbyLastModified()
+      {
+          return this.subTosub.sort((a: any, b:any)=>
+          {
+              return <any> new Date(a.timeStamp)- <any>new Date(b.timeStamp);
+              
+          }
+          
+          );  
+      }
 
       onSubToSubClick(eventx, eventy, eventz)
       {
@@ -378,7 +470,7 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
           this.hasSubTopic = true;
           this.content = eventy;
           this.thirdContent= eventy; //content for 3rd breadcrumbs
-          this.subTosubShow =! this.subTosubShow;
+          this.subTosubShow =true;
           this.subTosubTitle= eventz;
           this.hasChild =! this.hasChild;
           this.hasthirdChild = false;
@@ -441,11 +533,11 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
             /*this.subTitle=''
             this.subTosubTitle= ''*/
        
-            this.onClick(this.searchID, this.content, this.titleSearch);
+            this.onClick(this.searchID, this.content, this.titleSearch, this.topicLevelSearch);
         }
         if(this.topicLevelSearch == "1")
         {
-            this.onClick(this.searchParentID, this.content, this.titleSearch);
+            this.onClick(this.searchParentID, this.content, this.titleSearch, this.topicLevelSearch);
 
             this.onSubClick(this.searchID, this.content, this.titleSearch);
             
@@ -453,7 +545,7 @@ export class ClassicLayoutComponent implements OnInit, OnDestroy
         }
         if(this.topicLevelSearch=="2")
         {
-            this.onClick(this.serachTopId, this.content, this.topTtile);
+            this.onClick(this.serachTopId, this.content, this.topTtile, this.topicLevelSearch);
             this.onSubClick(this.searchParentID, this.content, this.titleSearch);
             this.onSubToSubClick(this.searchID, this.content, this.titleSearch);
         } 

@@ -27,6 +27,7 @@ import { FilterPipe } from './filter.pipe';
 import { MatTooltip } from '@angular/material/tooltip';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -37,7 +38,8 @@ import { MatInputModule } from '@angular/material/input';
 @NgModule({
     declarations: [
         ClassicLayoutComponent,
-        FilterPipe
+        FilterPipe,
+        
     ],
     imports     : [
         HttpClientModule,
@@ -64,7 +66,8 @@ import { MatInputModule } from '@angular/material/input';
         MatSidenavModule,
         MatExpansionModule,
         MatAutocompleteModule,
-        MatInputModule
+        MatInputModule,
+        
        
 
 
